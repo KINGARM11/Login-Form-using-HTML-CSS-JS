@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            background-color: rgb(127, 174, 255);
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            border-radius: 15px;
+            width: 600px;
+            height: 600px;
+            margin-left: 390px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-weight: bolder;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-bottom: 3px solid black;
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-left: -228px;
+            margin-top: -20px;
+            font-family: arial;
+        }
+
+        input {
+            border: none;
+            border-bottom: 2px solid black;
+            width: 300px;
+            outline: none;
+            padding-left: 50px;
+            font-size: 20px;
+        }
+
+        .icon1 {
+            margin-left: 122px;
+            margin-top: 0px;
+            position: absolute;
+            font-size: 25px;
+        }
+
+        .icon2 {
+            margin-left: 122px;
+            margin-top: 0px;
+            position: absolute;
+            font-size: 25px;
+        }
+
+        h3 {
+            margin-left: 218px;
+            margin-top: -11px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #but {
+            width: 220px;
+            border-radius: 17px;
+            height: 36px;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 5px;
+        }
+
+        #but:hover {
+            background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e73c7e, #ee7752);
+            transform: scale(1.1);
+        }
+
+        .swal-button--confirm:hover {
+            background-color: #00d90b;
+            font-size: 15px;
+        }
+
+        #fb {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            margin-left: -120px;
+            position: absolute;
+            border: 3px solid black;
+        }
+
+        #twi {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            position: absolute;
+            margin-left: -25px;
+            border: 3px solid black;
+        }
+
+        #gmail {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            position: absolute;
+            margin-left: 70px;
+            border: 3px solid black;
+        }
+
+        h4 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #open {
+            margin-left: 148px;
+            margin-top: 7px;
+            position: absolute;
+            font-size: 30px;
+            right: calc(49% - 160px);
+            top: 50%;
+            transform: translateY(-50%);
+            
+        }
+
+        #close {
+            margin-left: 148px;
+            margin-top: 7px;
+            position: absolute;
+            font-size: 30px;
+            right: calc(49% - 160px);
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"><br>
+        <h1>Login</h1><br><br>
+        <h2>Username</h2>
+        <div class="icon1"><ion-icon name="person"></ion-icon></div>
+        <input type="text" id="user" placeholder="Type your username"><br><br><br><br>
+        <h2>Password</h2>
+        <div class="icon2"><ion-icon name="key-sharp"></ion-icon></div>
+        <input type="password" id="pass" placeholder="Type your password"><br><br><ion-icon name="eye-sharp" id="close"
+            onclick="toggle()"></ion-icon><ion-icon name="eye-off-sharp" id="open" onclick="toggle()"></ion-icon>
+        <h3><a href="index.html">Forgot Password?</a></h3>
+
+        <button id="but" onclick="login()">Login</button><br>
+        <h4>Or Sign up using</h4>
+        <a href="https://www.facebook.com/login/" target="_blank"><img src="fb.jpg" alt="404" id="fb"></a><a
+            href="https://x.com/?lang=en" target="_blank"><img src="twi.png" alt="404" id="twi"></a><a
+            href="https://mail.google.com/mail/u/0/" target="_blank"><img src="gmail.png" alt="404" id="gmail">
+        </a>
+    </div>
+    <script>
+        function login() {
+            let use = document.getElementById("user");
+            let pass = document.getElementById("pass");
+            let val1 = "aayush";
+            let val2 = "2000";
+            if (use.value == "" || pass.value == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Please Enter Login Credentials',
+                    text: '',
+                    confirmButtonText: 'Okay'
+                });
+            }
+            if (use.value == "aayush" && pass.value == "2000") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successfully',
+                    text: 'Welcome',
+                    confirmButtonText: 'Okay',
+                    customClass: {
+                        confirmButton: 'swal-button--confirm',
+                        icon: 'swal-icon--success'
+                    }
+                });
+            }
+            if (use.value == val1 && pass.value != val2) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Please Enter correct Password',
+                    text: '',
+                    confirmButtonText: 'Okay'
+                });
+            }
+            if (use.value != val1 && pass.value == val2) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Please Enter correct Username',
+                    text: '',
+                    confirmButtonText: 'Okay'
+                });
+            }
+            if (use.value != val1 && pass.value != val2 && use.value != "" && pass.value != "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Please Enter correct Login Credentials',
+                    text: '',
+                    confirmButtonText: 'Okay'
+                });
+            }
+        }
+        function toggle() {
+            let pass1 = document.getElementById("pass");
+            let opens = document.getElementById("open");
+            let closes = document.getElementById("close");
+
+
+            if (pass1.type === "password") {
+                pass1.type = "text";
+                opens.style.display = "none";
+                closes.style.display = "block";
+            } else {
+                pass1.type = "password";
+                opens.style.display = "block";
+                closes.style.display = "none";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
